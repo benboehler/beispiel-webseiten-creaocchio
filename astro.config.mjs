@@ -5,7 +5,13 @@ import partytown from "@astrojs/partytown";
 
 import react from "@astrojs/react";
 
+import tailwindcss from "@tailwindcss/vite";
+
 // https://astro.build/config
 export default defineConfig({
-  integrations: [partytown(), react()]
+  integrations: [partytown(), react()],
+
+  vite: {
+    plugins: [tailwindcss()]
+  }
 });
