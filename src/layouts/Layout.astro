@@ -15,7 +15,41 @@ import "../styles/global.css";
 </head>
 <body>
 <Header/>
-<slot/>
+<main class="pt-20">
+    <slot/>
+</main>
+
+<script>
+    import {gsap} from "gsap";
+    import {ScrollToPlugin} from "gsap/ScrollToPlugin";
+
+    gsap.registerPlugin(ScrollToPlugin);
+
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const targetId = anchor.getAttribute('href');
+            if (!targetId || targetId === '#') return;
+
+            try {
+                const targetElement = document.querySelector(targetId);
+
+                if (targetElement) {
+                    gsap.to(window, {
+                        duration: 1,
+                        scrollTo: {
+                            y: targetElement,
+                            offsetY: 80
+                        },
+                        ease: "power2.inOut"
+                    });
+                }
+            } catch (error) {
+                console.error('Invalid selector:', targetId);
+            }
+        });
+    });
+</script>
 </body>
 </html>
 
