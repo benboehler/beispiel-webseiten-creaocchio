@@ -11,6 +11,12 @@ import tailwindcss from "@tailwindcss/vite";
 export default defineConfig({
   integrations: [partytown(), react()],
 
+  image: {
+    service: {
+      entrypoint: 'astro/assets/services/noop'
+    }
+  },
+
   vite: {
     plugins: [tailwindcss()]
   }
