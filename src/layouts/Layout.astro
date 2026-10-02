@@ -64,6 +64,13 @@ import "../styles/global.css";
 
                     if (targetElement) {
                         e.preventDefault();
+                        gsap.killTweensOf(window);
+                        if (window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
+                            gsap.set(window, {
+                                scrollTo: { y: targetElement, offsetY: 80 }
+                            });
+                            return;
+                        }
                         gsap.to(window, {
                             duration: 1,
                             scrollTo: {

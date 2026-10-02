@@ -1,4 +1,5 @@
 @import "tailwindcss";
+@import "../../node_modules/preline/src/plugins/collapse/variants.css";
 
 @theme {
   --color-massage-primary: #8da399; /* Sanftes Salbeigrün */
@@ -18,4 +19,10 @@ body {
     margin: 0;
     width: 100%;
     height: 100%;
+}
+
+a:focus-visible,
+button:focus-visible {
+    outline: 3px solid #25352e;
+    outline-offset: 4px;
 }
