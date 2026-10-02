@@ -5,6 +5,14 @@
   --color-massage-pale: #f1f4f2;    /* Sehr blasses Grün */
 }
 
+@theme inline {
+  --color-foreground: inherit;
+  --color-muted-foreground: inherit;
+  --color-surface: transparent;
+  --color-background: transparent;
+  --color-navbar-line: currentColor;
+}
+
 html,
 body {
     margin: 0;
